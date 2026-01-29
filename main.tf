@@ -1,26 +1,16 @@
 terraform {
 
-  required_providers {
-
-    null = {
-
-      source = "hashicorp/null"
-
-    }
-
-  }
+  required_version = ">= 1.3.0"
 
 }
 
 
 
-resource "null_resource" "gitops_test" {
+resource "local_file" "gitops_demo" {
 
-  provisioner "local-exec" {
+  filename = "gitops.txt"
 
-    command = "GitOps Infra Project-18"
-
-  }
+  content  = "GitOps deployment triggered at ${timestamp()}"
 
 }
 
